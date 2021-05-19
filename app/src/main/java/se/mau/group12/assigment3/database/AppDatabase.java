@@ -7,11 +7,16 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
-@Database(entities = {}, version = 0, exportSchema = false)
+@Database(entities = {User.class, UserStats.class, Exercise.class, Training.class},
+        version = 1, exportSchema = false)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase database;
     private static String DATABASE_NAME = "database";
+    public abstract UserDao userDao();
+    public abstract UserStatsDao userStatsDao();
+    public abstract ExerciseDao exerciseDao();
+    public abstract TrainingDao trainingDao();
 
     public synchronized static AppDatabase getInstance(Context context){
         if(database == null){
