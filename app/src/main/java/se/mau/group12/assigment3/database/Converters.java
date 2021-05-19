@@ -1,4 +1,4 @@
-package se.mau.group12.assigment3;
+package se.mau.group12.assigment3.database;
 
 import androidx.room.TypeConverter;
 
