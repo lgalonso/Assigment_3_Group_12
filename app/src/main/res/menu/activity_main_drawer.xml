@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="HOME" />
+        <item
+            android:id="@+id/nav_calendar"
+            android:icon="@drawable/ic_baseline_calendar_today_24"
+            android:title="CALENDAR" />
+        <item
+            android:id="@+id/nav_trainings"
+            android:icon="@drawable/ic_baseline_fitness_center_24"
+            android:title="TRAININGS" />
+        <item
+            android:id="@+id/nav_stats"
+            android:icon="@drawable/ic_baseline_auto_graph_24"
+            android:title="STATS" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_baseline_logout_24"
+            android:iconTint="@color/white"
+            android:title="LOGOUT" />
+    </group>
+    
+</menu>
