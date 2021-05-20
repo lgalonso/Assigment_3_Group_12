@@ -4,6 +4,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.Date;
+
 @Entity
 public class UserStats {
     @PrimaryKey(autoGenerate = true)
@@ -20,4 +22,7 @@ public class UserStats {
 
     @ColumnInfo(name = "calories")
     public Float calories;
+
+    @ColumnInfo(name = "date")
+    public Date date;
 }

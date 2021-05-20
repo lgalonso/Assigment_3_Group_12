@@ -21,9 +21,12 @@ public class Exercise {
     @ColumnInfo(name = "difficulty")
     public int difficulty;
 
-    @ColumnInfo(name = "exercise_link")
-    public String exercise_link;
+    @ColumnInfo(name = "youtube_link")
+    public String youtube_link;
 
-    @ColumnInfo(name = "exercise_image")
-    public String exercise_image;
+    @ColumnInfo(name = "timestamp")
+    public String timestamp;
+
+    @ColumnInfo(name = "image")
+    public String image;
 }

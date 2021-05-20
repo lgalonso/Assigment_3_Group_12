@@ -12,6 +12,8 @@ public interface ExerciseDao {
     @Query("SELECT * FROM exercise")
     List<Exercise> getAll();
 
+    //Todo getExercisesByTraining
+
     @Insert
     void insert(Exercise exercise);
 
