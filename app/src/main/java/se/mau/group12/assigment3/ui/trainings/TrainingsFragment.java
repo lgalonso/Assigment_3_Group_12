@@ -23,13 +23,6 @@ public class TrainingsFragment extends Fragment {
         trainingsViewModel =
                 new ViewModelProvider(this).get(TrainingsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_trainings, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
-        trainingsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
         return root;
     }
 }

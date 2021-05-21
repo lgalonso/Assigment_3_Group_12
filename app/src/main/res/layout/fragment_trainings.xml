@@ -7,41 +7,76 @@
     tools:context=".ui.trainings.TrainingsFragment">
 
 
-    <ImageView
-        android:id="@+id/login_email_input"
-        android:layout_width="380dp"
-        android:layout_height="106dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/input_design"
-        android:src="@drawable/abs"
+    <ImageButton
+        android:id="@+id/Button_ABS"
+        android:layout_width="320dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginRight="27dp"
+        android:layout_marginBottom="19dp"
+        android:background="@drawable/abs_"
+        app:layout_constraintBottom_toTopOf="@+id/Button_Arms"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/login_email_input2"
-        android:layout_width="380dp"
-        android:layout_height="106dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/input_design"
-        android:src="@drawable/abs"
+    <ImageButton
+        android:id="@+id/Button_Arms"
+        android:layout_width="315dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginRight="27dp"
+        android:layout_marginBottom="17dp"
+        android:background="@drawable/arms"
+        app:layout_constraintBottom_toTopOf="@+id/Button_Legs"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_email_input" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/text_slideshow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+    <ImageButton
+        android:id="@+id/Button_Legs"
+        android:layout_width="320dp"
+        android:layout_height="97dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginRight="27dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/legs"
+        app:layout_constraintBottom_toTopOf="@+id/Button_ShouldersAndBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/Button_ShouldersAndBack"
+        android:layout_width="319dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginRight="27dp"
+        android:layout_marginBottom="17dp"
+        android:background="@drawable/shoulders"
+        app:layout_constraintBottom_toTopOf="@+id/Button_FullBody"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/Button_FullBody"
+        android:layout_width="325dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginRight="27dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/fullbody"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
