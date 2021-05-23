@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Assigment3">
         <activity
-            android:name=".LoginActivity"
+            android:name=".RegisterActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/Theme.Assigment3.NoActionBar"></activity>
         <activity
