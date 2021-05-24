@@ -4,6 +4,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.Date;
+
 @Entity
 public class User {
     @PrimaryKey(autoGenerate = true)
@@ -14,6 +16,9 @@ public class User {
 
     @ColumnInfo(name = "surname")
     public String surname;
+
+    @ColumnInfo(name = "password")
+    public String password;
 
     @ColumnInfo(name = "email")
     public String email;
@@ -29,4 +34,7 @@ public class User {
 
     @ColumnInfo(name = "training_key_1")
     public String training_key_1;
+
+    @ColumnInfo(name = "start_date")
+    public Date start_date;
 }

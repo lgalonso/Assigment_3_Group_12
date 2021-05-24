@@ -21,12 +21,15 @@ public class Exercise {
     @ColumnInfo(name = "difficulty")
     public int difficulty;
 
-    @ColumnInfo(name = "youtube_link")
-    public String youtube_link;
+    @ColumnInfo(name = "video_id")
+    public String video_id;
 
-    @ColumnInfo(name = "timestamp")
-    public String timestamp;
+    @ColumnInfo(name = "video_timestamp")
+    public int video_timestamp;
 
     @ColumnInfo(name = "image")
     public String image;
+
+    @ColumnInfo(name = "date_interval")
+    public int date_interval;
 }

@@ -35,4 +35,6 @@ public class Training {
 
     @ColumnInfo(name = "exercise_key_4")
     public String exercise_key_4;
+
+
 }
