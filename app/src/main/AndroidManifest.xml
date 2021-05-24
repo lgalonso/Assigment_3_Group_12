@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Assigment3">
+        <activity android:name=".DetailsSessionActivity"></activity>
         <activity
             android:name=".RegisterActivity"
             android:label="@string/title_activity_login"
-            android:theme="@style/Theme.Assigment3.NoActionBar"></activity>
+            android:theme="@style/Theme.Assigment3.NoActionBar" />
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
