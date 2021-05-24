@@ -39,6 +39,7 @@ public class TrainingsFragment extends Fragment {
             public void onClick(View v) {
 
                 Intent intent = new Intent(getContext(), DetailsSessionActivity.class);
+                intent.putExtra("Title","ABS");
                 startActivity(intent);
             }
         });
