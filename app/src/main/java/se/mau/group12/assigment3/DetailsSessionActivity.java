@@ -19,7 +19,6 @@ public class DetailsSessionActivity extends AppCompatActivity {
 
     TextView timerValue, title, description, timeSession;
     ImageView imgSession;
-    LinearLayout fitone;
     Button btnStart;
 
     private static final long START_TIME_IN_MILLIS = 300000;
