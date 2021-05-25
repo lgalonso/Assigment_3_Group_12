@@ -13,15 +13,23 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerView;
+
 import java.util.Locale;
 
-public class DetailsSessionActivity extends AppCompatActivity {
+public class DetailsSessionActivity extends YouTubeBaseActivity {
 
     TextView intropage, subintropage, fitonetitle, fitonedesc, timerValue, btnexercise;
     View divpage, bgprogress;
     ImageView imgtimer;
     LinearLayout fitone;
     Button btnStart;
+
+    YouTubePlayerView youTubeVideo;
+    YouTubePlayer.OnInitializedListener onInitializedListener;
 
     private static final long START_TIME_IN_MILLIS = 300000;
     private CountDownTimer countDownTimer;
@@ -37,6 +45,25 @@ public class DetailsSessionActivity extends AppCompatActivity {
         btnStart = findViewById(R.id.StartButton);
 
         timerValue = findViewById(R.id.timerValue);
+
+        youTubeVideo = findViewById(R.id.youtube_view);
+        onInitializedListener = new YouTubePlayer.OnInitializedListener() {
+            @Override
+            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+
+                /// REPLACE HERE WITH LINK FROM THE DATABASE
+                String link = "a4NT5iBFuZs";
+                int timeStamp = 0;
+
+                youTubePlayer.loadVideo(link,timeStamp);
+            }
+
+            @Override
+            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+
+            }
+        };
+        youTubeVideo.initialize("AIzaSyAYdEGnQOYZHdlrn4rnx71AVqaC1m_6mHg",onInitializedListener);
 
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
