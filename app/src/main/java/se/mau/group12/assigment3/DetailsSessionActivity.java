@@ -53,9 +53,10 @@ public class DetailsSessionActivity extends YouTubeBaseActivity {
 
                 /// REPLACE HERE WITH LINK FROM THE DATABASE
                 String link = "a4NT5iBFuZs";
-                int timeStamp = 0;
 
-                youTubePlayer.loadVideo(link,timeStamp);
+                youTubePlayer.loadVideo(link);
+                int timeStamp = 10000;
+                //youTubePlayer.loadVideo(link,timeStamp);
             }
 
             @Override
@@ -69,7 +70,6 @@ public class DetailsSessionActivity extends YouTubeBaseActivity {
             @Override
             public void onClick(View v) {
                 startStop();
-
             }
         });
 
