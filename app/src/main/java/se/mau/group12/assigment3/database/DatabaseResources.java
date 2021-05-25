@@ -53,6 +53,8 @@ public class DatabaseResources {
     private int[] shoulders_back_timestamps = {460, 580, 1688};
     private String[] shoulders_back_images = {"back on swiss ball", "Pull up", "vinst on swiss ball"};
 
+    private int[] exercise_interval = {1, 2, 3};
+
     public void loadResources(Context context) {
         AppDatabase db = AppDatabase.getInstance(context);
         ExerciseDao exerciseDao = db.exerciseDao();
@@ -77,6 +79,7 @@ public class DatabaseResources {
                         exercise.setVideo_id(video_ids[i]);
                         exercise.setImage(abs_images[j]);
                         exercise.setVideo_timestamp(abs_timestamps[j]);
+                        exercise.setDate_interval(exercise_interval[j]);
                         switch (j){
                             case 0:
                                 training.setExercise_key_1(abs_name[j]);
@@ -102,6 +105,7 @@ public class DatabaseResources {
                         exercise.setVideo_id(video_ids[i]);
                         exercise.setImage(legs_images[j]);
                         exercise.setVideo_timestamp(legs_timestamps[j]);
+                        exercise.setDate_interval(exercise_interval[j]);
                         switch (j){
                             case 0:
                                 training.setExercise_key_1(legs_name[j]);
@@ -127,6 +131,7 @@ public class DatabaseResources {
                         exercise.setVideo_id(video_ids[i]);
                         exercise.setImage(full_body_images[j]);
                         exercise.setVideo_timestamp(full_body_timestamps[j]);
+                        exercise.setDate_interval(exercise_interval[j]);
                         switch (j){
                             case 0:
                                 training.setExercise_key_1(full_body_name[j]);
@@ -152,6 +157,7 @@ public class DatabaseResources {
                         exercise.setVideo_id(video_ids[i]);
                         exercise.setImage(shoulders_back_images[j]);
                         exercise.setVideo_timestamp(shoulders_back_timestamps[j]);
+                        exercise.setDate_interval(exercise_interval[j]);
                         switch (j){
                             case 0:
                                 training.setExercise_key_1(shoulders_back_name[j]);
