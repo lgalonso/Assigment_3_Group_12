@@ -17,8 +17,9 @@ import se.mau.group12.assigment3.R;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-    private TextView textViewtitle;
+    private TextView textViewtitle, numberSessionDone, textViewDateDay,textViewTemperatureDay, textWelcomeMessage;
     private Button btnNext;
+    private ImageView imageweather;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -29,6 +30,13 @@ public class HomeFragment extends Fragment {
 
         textViewtitle = root.findViewById(R.id.textViewTitleHome);
         btnNext = root.findViewById(R.id.buttonNextHome);
+        numberSessionDone=root.findViewById(R.id.numberofSessionDone);
+        textViewDateDay=root.findViewById(R.id.textViewDateDay);
+        textViewTemperatureDay=root.findViewById(R.id.temperatureText);
+        textWelcomeMessage = root.findViewById(R.id.WelcomeMessageWeather);
+
+        imageweather =root.findViewById(R.id.imageWeather);
+
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
