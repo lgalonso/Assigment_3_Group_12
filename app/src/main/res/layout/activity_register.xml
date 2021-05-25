@@ -13,15 +13,16 @@
         android:layout_height="103dp"
         android:layout_marginStart="106dp"
         android:layout_marginLeft="106dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="106dp"
         android:layout_marginRight="106dp"
-        android:layout_marginBottom="23dp"
+        android:layout_marginBottom="10dp"
         android:src="@drawable/sportlogo"
         app:layout_constraintBottom_toTopOf="@+id/app_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/app_title"
@@ -31,7 +32,6 @@
         android:layout_marginLeft="69dp"
         android:layout_marginEnd="70dp"
         android:layout_marginRight="70dp"
-        android:layout_marginBottom="11dp"
         android:gravity="center_horizontal"
         android:text="FITOn"
         android:textAlignment="center"
@@ -40,7 +40,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/app_slogan"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -51,7 +50,7 @@
         android:layout_marginLeft="69dp"
         android:layout_marginEnd="65dp"
         android:layout_marginRight="65dp"
-        android:layout_marginBottom="39dp"
+        android:layout_marginBottom="20dp"
         android:gravity="center_horizontal"
         android:text="COMMIT TO BE FIT"
         android:textAlignment="center"
@@ -62,7 +61,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
-
 
     <EditText
         android:id="@+id/register_username_input"
