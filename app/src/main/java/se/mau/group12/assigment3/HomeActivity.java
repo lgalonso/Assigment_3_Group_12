@@ -37,6 +37,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private String temperature = "";
+    private String weather = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,7 @@ public class HomeActivity extends AppCompatActivity {
         });
         Intent intent = getIntent();
         temperature = intent.getStringExtra("temperature");
+        weather = intent.getStringExtra("weather");
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -83,7 +85,14 @@ public class HomeActivity extends AppCompatActivity {
 
     public String get_temp()
     {
-        //getWeatherAPI();
+        double temp = Double.parseDouble(temperature);
+        temp = temp - 273.15;
+        temp = (double) Math.round(temp * 100) / 100;
+        temperature = String. valueOf(temp)+"°";
         return temperature;
+    }
+    public String get_weather()
+    {
+        return weather;
     }
 }

@@ -12,6 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+import se.mau.group12.assigment3.HomeActivity;
 import se.mau.group12.assigment3.R;
 
 public class HomeFragment extends Fragment {
@@ -36,6 +40,43 @@ public class HomeFragment extends Fragment {
         textWelcomeMessage = root.findViewById(R.id.WelcomeMessageWeather);
 
         imageweather =root.findViewById(R.id.imageWeather);
+        String temperature = ((HomeActivity)getActivity()).get_temp();
+        String weather = ((HomeActivity)getActivity()).get_weather();
+        textViewTemperatureDay.setText(temperature);
+        Calendar calendar;
+        calendar = Calendar.getInstance();
+        SimpleDateFormat dateFormat;
+        dateFormat = new SimpleDateFormat("EEE, MMM d, yyyy" );
+        String date = dateFormat.format(calendar.getTime());
+        textViewDateDay.setText(date);
+        switch (weather)
+        {
+            case "Clouds":
+                imageweather.setImageResource(R.drawable.clouds);
+                textWelcomeMessage.setText("Run in the rain never killed anyone !");
+                break;
+            case "Clear":
+                imageweather.setImageResource(R.drawable.sun);
+                textWelcomeMessage.setText("Go outside to training it's a sunny day !");
+                //text
+                break;
+            case "Snow":
+                imageweather.setImageResource(R.drawable.snow);
+                textWelcomeMessage.setText("An inside training it's also good for the muscle !");
+                break;
+            case "Rain":
+                imageweather.setImageResource(R.drawable.rain);
+                textWelcomeMessage.setText("Run in the rain never killed anyone !");
+                break;
+            case "Thunderstorm":
+                imageweather.setImageResource(R.drawable.thunderstorm);
+                textWelcomeMessage.setText("An inside training it's also good for the muscle !");
+                break;
+            default:
+                imageweather.setImageResource(R.drawable.cloudswithsun);
+                textWelcomeMessage.setText("Go outside to training !");
+                break;
+        }
 
 
         btnNext.setOnClickListener(new View.OnClickListener() {

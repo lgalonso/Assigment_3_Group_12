@@ -19,6 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button signInButton, createAccountButton;
     String temperature = "";
-    TextView temp;
+    String weather ="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,HomeActivity.class);
                 intent.putExtra("temperature",temperature);
+                intent.putExtra("weather",weather);
                 startActivity(intent);
             }
         });
@@ -70,7 +72,11 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     JSONObject object = response.getJSONObject("main");
+                    JSONArray object2 = response.getJSONArray("weather");
+                    JSONObject jsonPart = object2.getJSONObject(0);
                     temperature = object.getString("temp");
+                    weather = jsonPart.getString("main");
+                    Log.i("TAG", "onResponse: "+weather);
                     Log.i("TAG", "onResponse: "+temperature);
                 } catch (JSONException e) {
                     Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
