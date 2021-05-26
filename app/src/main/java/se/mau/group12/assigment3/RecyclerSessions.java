@@ -19,6 +19,7 @@ public class RecyclerSessions extends RecyclerView.Adapter<RecyclerSessions.View
     private List sessions; // CHANGE WITH DATABASE
     TextView textViewTitle;
 
+    //Todo on create query db to retrieve a list of exercises of a given training
     public RecyclerSessions(List expenses) {
         this.sessions= expenses;
     }
@@ -48,6 +49,7 @@ public class RecyclerSessions extends RecyclerView.Adapter<RecyclerSessions.View
             @Override
             public void onClick(View v) {
                 // OPEN DETAILS SESSION ACTIVITY WITH INFO OF THE SESSION
+                // Create an intent to receive it on the DetailsSessionActivity
             }
         });
 

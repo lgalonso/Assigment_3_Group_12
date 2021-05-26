@@ -36,5 +36,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Todo instanciate database and populate it with the db resources
+
     }
 }

@@ -15,7 +15,7 @@ public class SessionsActivity extends AppCompatActivity {
     RecyclerSessions recyclerSessions;
     TextView textViewTitle;
 
-    List session; //USE DATABASE
+    List session; //USE DATABASE TO GET THE EXERCISES OF A TRAINING
 
 
 
@@ -32,6 +32,7 @@ public class SessionsActivity extends AppCompatActivity {
         recyclerSessions = new RecyclerSessions(session);
         recyclerView.setAdapter(recyclerSessions);
 
+        // from the intent we get the name of the training
         String title = getIntent().getStringExtra("Title");
         textViewTitle.setText(title);
 
