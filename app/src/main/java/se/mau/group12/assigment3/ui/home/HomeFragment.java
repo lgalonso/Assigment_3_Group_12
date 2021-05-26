@@ -53,7 +53,7 @@ public class HomeFragment extends Fragment {
         {
             case "Clouds":
                 imageweather.setImageResource(R.drawable.clouds);
-                textWelcomeMessage.setText("Run in the rain never killed anyone !");
+                textWelcomeMessage.setText("Nice weather today. Time to get up!!");
                 break;
             case "Clear":
                 imageweather.setImageResource(R.drawable.sun);

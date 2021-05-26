@@ -2,6 +2,7 @@ package se.mau.group12.assigment3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -33,6 +34,7 @@ public class DetailsSessionActivity extends YouTubeBaseActivity {
     private CountDownTimer countDownTimer;
     private boolean mTimerRunning;
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
+
 
 
     @Override
@@ -68,8 +70,6 @@ public class DetailsSessionActivity extends YouTubeBaseActivity {
         };
         youTubeVideo.initialize("AIzaSyAYdEGnQOYZHdlrn4rnx71AVqaC1m_6mHg",onInitializedListener);
 
-
-
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,6 +104,7 @@ public class DetailsSessionActivity extends YouTubeBaseActivity {
         mTimerRunning = true;
     }
 
+
     public void stopTimer(){
         countDownTimer.cancel();
         btnStart.setText("START");
@@ -117,4 +118,5 @@ public class DetailsSessionActivity extends YouTubeBaseActivity {
         String timeLeft = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
         timerValue.setText(timeLeft);
     }
+
 }
