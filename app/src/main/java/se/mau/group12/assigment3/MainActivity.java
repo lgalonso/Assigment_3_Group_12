@@ -7,14 +7,30 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import se.mau.group12.assigment3.database.AppDatabase;
+import se.mau.group12.assigment3.database.DatabaseResources;
+import se.mau.group12.assigment3.database.User;
+import se.mau.group12.assigment3.database.UserDao;
+
 public class MainActivity extends AppCompatActivity {
 
     Button signInButton, createAccountButton;
+    AppDatabase db;
+    User user;
+    UserDao userDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Database and populate it with the db resources
+        db = AppDatabase.getInstance(MainActivity.this);
+        DatabaseResources databaseResources = new DatabaseResources();
+        databaseResources.loadResources(MainActivity.this);
+
+        user = new User();
+        userDao = db.userDao();
 
         signInButton = findViewById(R.id.button_Sign_in);
 
@@ -35,8 +51,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        //Todo instanciate database and populate it with the db resources
-
     }
 }
