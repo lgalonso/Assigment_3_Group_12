@@ -17,10 +17,8 @@ import java.util.Locale;
 
 public class DetailsSessionActivity extends AppCompatActivity {
 
-    TextView intropage, subintropage, fitonetitle, fitonedesc, timerValue, btnexercise;
-    View divpage, bgprogress;
-    ImageView imgtimer;
-    LinearLayout fitone;
+    TextView timerValue, title, description, timeSession;
+    ImageView imgSession;
     Button btnStart;
 
     private static final long START_TIME_IN_MILLIS = 300000;
@@ -36,7 +34,12 @@ public class DetailsSessionActivity extends AppCompatActivity {
 
         btnStart = findViewById(R.id.StartButton);
 
+        imgSession = findViewById(R.id.imageSession);
+
         timerValue = findViewById(R.id.timerValue);
+        description = findViewById(R.id.descriptionDetailsSession);
+        timeSession = findViewById(R.id.timeDetailsSession);
+        title= findViewById(R.id.titleDetailsSession);
 
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
