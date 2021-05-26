@@ -34,6 +34,8 @@ public class DetailsSessionActivity extends AppCompatActivity {
 
         btnStart = findViewById(R.id.StartButton);
 
+        //Todo get data from database
+
         imgSession = findViewById(R.id.imageSession);
 
         timerValue = findViewById(R.id.timerValue);
