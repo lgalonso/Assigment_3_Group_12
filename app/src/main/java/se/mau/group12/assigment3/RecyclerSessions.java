@@ -2,6 +2,7 @@ package se.mau.group12.assigment3;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -53,6 +54,9 @@ public class RecyclerSessions extends RecyclerView.Adapter<RecyclerSessions.View
             public void onClick(View v) {
                 // OPEN DETAILS SESSION ACTIVITY WITH INFO OF THE SESSION
                 // Create an intent to receive it on the DetailsSessionActivity
+                Intent intent = new Intent(context, DetailsSessionActivity.class);
+                intent.putExtra("exercise", holder.title.getText().toString());
+                context.startActivity(intent);
             }
         });
 
