@@ -71,11 +71,11 @@ public class DatabaseResources {
 
             switch (i){
                 case 0:
-                    for (int j = 0; j < 3; j++) {
+                    for (int j = 0; j < 2; j++) {
                         exercise.setName(abs_name[j]);
-                        exercise.setDescription(abs_description[i]);
-                        exercise.setDifficulty(abs_difficulty[i]);
-                        exercise.setDuration(abs_duration[i]);
+                        exercise.setDescription(abs_description[j]);
+                        exercise.setDifficulty(abs_difficulty[j]);
+                        exercise.setDuration(abs_duration[j]);
                         exercise.setVideo_id(video_ids[i]);
                         exercise.setImage(abs_images[j]);
                         exercise.setVideo_timestamp(abs_timestamps[j]);
@@ -97,11 +97,11 @@ public class DatabaseResources {
                     }
                     break;
                 case 1:
-                    for (int j = 0; j < 3; j++) {
+                    for (int j = 0; j < 2; j++) {
                         exercise.setName(legs_name[j]);
-                        exercise.setDescription(legs_description[i]);
-                        exercise.setDifficulty(legs_difficulty[i]);
-                        exercise.setDuration(legs_duration[i]);
+                        exercise.setDescription(legs_description[j]);
+                        exercise.setDifficulty(legs_difficulty[j]);
+                        exercise.setDuration(legs_duration[j]);
                         exercise.setVideo_id(video_ids[i]);
                         exercise.setImage(legs_images[j]);
                         exercise.setVideo_timestamp(legs_timestamps[j]);
@@ -123,11 +123,11 @@ public class DatabaseResources {
                     }
                     break;
                 case 2:
-                    for (int j = 0; j < 3; j++) {
+                    for (int j = 0; j < 2; j++) {
                         exercise.setName(full_body_name[j]);
-                        exercise.setDescription(full_body_description[i]);
-                        exercise.setDifficulty(full_body_difficulty[i]);
-                        exercise.setDuration(full_body_duration[i]);
+                        exercise.setDescription(full_body_description[j]);
+                        exercise.setDifficulty(full_body_difficulty[j]);
+                        exercise.setDuration(full_body_duration[j]);
                         exercise.setVideo_id(video_ids[i]);
                         exercise.setImage(full_body_images[j]);
                         exercise.setVideo_timestamp(full_body_timestamps[j]);
@@ -149,11 +149,11 @@ public class DatabaseResources {
                     }
                     break;
                 case 3:
-                    for (int j = 0; j < 3; j++) {
+                    for (int j = 0; j < 2; j++) {
                         exercise.setName(shoulders_back_name[j]);
-                        exercise.setDescription(shoulders_back_description[i]);
-                        exercise.setDifficulty(shoulders_back_difficulty[i]);
-                        exercise.setDuration(shoulders_back_duration[i]);
+                        exercise.setDescription(shoulders_back_description[j]);
+                        exercise.setDifficulty(shoulders_back_difficulty[j]);
+                        exercise.setDuration(shoulders_back_duration[j]);
                         exercise.setVideo_id(video_ids[i]);
                         exercise.setImage(shoulders_back_images[j]);
                         exercise.setVideo_timestamp(shoulders_back_timestamps[j]);
