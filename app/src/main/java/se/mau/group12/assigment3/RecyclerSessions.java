@@ -1,6 +1,8 @@
 package se.mau.group12.assigment3;
 
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
@@ -17,7 +19,7 @@ import java.util.List;
 import se.mau.group12.assigment3.database.Exercise;
 
 public class RecyclerSessions extends RecyclerView.Adapter<RecyclerSessions.ViewHolder> {
-
+    private Context context;
     private List<Exercise> sessions;
     TextView textViewTitle;
 
@@ -30,20 +32,21 @@ public class RecyclerSessions extends RecyclerView.Adapter<RecyclerSessions.View
     public RecyclerSessions.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_row, parent, false);
         textViewTitle = view.findViewById(R.id.textViewTitle);
-        return new ViewHolder(view);
+
+        ViewHolder vh = new ViewHolder(view);
+        context = parent.getContext();
+
+        return vh;
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerSessions.ViewHolder holder, int position) {
+        Resources resources = context.getResources();
+        final int resId = resources.getIdentifier(sessions.get(position).getImage(), "drawable", context.getPackageName());
 
-        TextView textViewtitle = holder.itemView.findViewById(R.id.textViewTitle);
-        ImageView imageView = holder.itemView.findViewById(R.id.imageSession);
+        holder.title.setText(sessions.get(position).getName());
+        holder.image.setImageDrawable(resources.getDrawable(resId));
         Button btnNext = holder.itemView.findViewById(R.id.buttonNextDetailsSession);
-
-
-
-        // SET TEXT
-
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,8 +65,13 @@ public class RecyclerSessions extends RecyclerView.Adapter<RecyclerSessions.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        private TextView title;
+        private ImageView image;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            title = itemView.findViewById(R.id.textViewTitle);
+            image = itemView.findViewById(R.id.imageSession);
         }
     }
 }

@@ -19,7 +19,7 @@ public class SessionsActivity extends AppCompatActivity {
     RecyclerSessions recyclerSessions;
     TextView textViewTitle;
 
-    List<Exercise> session; //USE DATABASE TO GET THE EXERCISES OF A TRAINING
+    List<Exercise> session;
 
 
 
