@@ -16,8 +16,6 @@ public class MainActivity extends AppCompatActivity {
 
     Button signInButton, createAccountButton;
     AppDatabase db;
-    User user;
-    UserDao userDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +26,6 @@ public class MainActivity extends AppCompatActivity {
         db = AppDatabase.getInstance(MainActivity.this);
         DatabaseResources databaseResources = new DatabaseResources();
         databaseResources.loadResources(MainActivity.this);
-
-        user = new User();
-        userDao = db.userDao();
 
         signInButton = findViewById(R.id.button_Sign_in);
 

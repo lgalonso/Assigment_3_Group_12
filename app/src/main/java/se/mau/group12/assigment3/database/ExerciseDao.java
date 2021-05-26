@@ -12,7 +12,8 @@ public interface ExerciseDao {
     @Query("SELECT * FROM exercise")
     List<Exercise> getAll();
 
-    //Todo getExercisesByTraining
+    @Query("SELECT * FROM exercise Where name LIKE :name")
+    Exercise getExerciseByName(String name);
 
     @Insert
     void insert(Exercise exercise);

@@ -58,6 +58,8 @@ public class RegisterActivity extends AppCompatActivity {
 
                 userDao.insert(user);
 
+                //Todo get id of registered user and store in shared preferences
+
                 //Todo intent to change activity
             }
         });

@@ -54,21 +54,27 @@ public class TrainingsFragment extends Fragment {
         buttonLegs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getContext(), DetailsSessionActivity.class);
+                intent.putExtra("Title","LEGS");
+                startActivity(intent);
             }
         });
 
         buttonFullBody.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getContext(), DetailsSessionActivity.class);
+                intent.putExtra("Title","FULL");
+                startActivity(intent);
             }
         });
 
         buttonShouldersAndBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getContext(), DetailsSessionActivity.class);
+                intent.putExtra("Title","SHOU");
+                startActivity(intent);
             }
         });
         return root;

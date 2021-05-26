@@ -14,13 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import se.mau.group12.assigment3.database.Exercise;
+
 public class RecyclerSessions extends RecyclerView.Adapter<RecyclerSessions.ViewHolder> {
 
-    private List sessions; // CHANGE WITH DATABASE
+    private List<Exercise> sessions;
     TextView textViewTitle;
 
-    //Todo on create query db to retrieve a list of exercises of a given training
-    public RecyclerSessions(List expenses) {
+    public RecyclerSessions(List<Exercise> expenses) {
         this.sessions= expenses;
     }
 
@@ -41,8 +42,7 @@ public class RecyclerSessions extends RecyclerView.Adapter<RecyclerSessions.View
 
 
 
-        // USE DATABASE TO SET TEXT
-        //   ....
+        // SET TEXT
 
 
         btnNext.setOnClickListener(new View.OnClickListener() {

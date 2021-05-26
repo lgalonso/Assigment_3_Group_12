@@ -12,6 +12,9 @@ public interface TrainingDao {
     @Query("SELECT * FROM training")
     List<Training> getAll();
 
+    @Query("SELECT * FROM training Where name LIKE :name")
+    Training getTrainingByName(String name);
+
     @Insert
     void insert(Training training);
 

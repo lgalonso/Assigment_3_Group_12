@@ -19,6 +19,8 @@ public interface UserDao {
             "surname LIKE :last LIMIT 1")
     User findByName(String first, String last);
 
+    //Todo set training + start date of user
+
 //    @Insert
 //    void insertAll(User... users);
 
