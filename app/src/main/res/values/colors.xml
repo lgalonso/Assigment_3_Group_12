@@ -9,4 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue_purple">#07013F</color>
     <color name="PurpleButton">#7C2AE8</color>
+    <color name="yellow">#FFB500</color>
+    <color name="pink">#FF2D98</color>
+    <color name="red">#F44336</color>
 </resources>
