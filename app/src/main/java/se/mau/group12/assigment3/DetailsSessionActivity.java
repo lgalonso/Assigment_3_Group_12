@@ -68,6 +68,8 @@ public class DetailsSessionActivity extends YouTubeBaseActivity {
         };
         youTubeVideo.initialize("AIzaSyAYdEGnQOYZHdlrn4rnx71AVqaC1m_6mHg",onInitializedListener);
 
+
+
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

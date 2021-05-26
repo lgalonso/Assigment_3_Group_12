@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //CHECK EMAIL AND PASSWORD
                 Intent intent = new Intent(MainActivity.this,HomeActivity.class);
                 intent.putExtra("temperature",temperature);
                 intent.putExtra("weather",weather);
@@ -61,9 +63,12 @@ public class MainActivity extends AppCompatActivity {
     }
     public String getWeatherAPI()
     {
+        Log.i("TAG", "getWeatherAPI: here");
         String apikey = "b4c34faf6d8d50697ddb34b2846b24a1";
         //api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
-        String url="http://api.openweathermap.org/data/2.5/weather?q=malmo&appid=e8d6a48f8400dbc223c3f72c05341708";
+        String url="https://api.openweathermap.org/data/2.5/weather?q=malmo&appid=e8d6a48f8400dbc223c3f72c05341708";
+
+
 
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
@@ -71,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
+                    Log.i("TAG", "onResponse: try");
                     JSONObject object = response.getJSONObject("main");
                     JSONArray object2 = response.getJSONArray("weather");
                     JSONObject jsonPart = object2.getJSONObject(0);
@@ -79,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.i("TAG", "onResponse: "+weather);
                     Log.i("TAG", "onResponse: "+temperature);
                 } catch (JSONException e) {
+                    Log.i("TAG", "onResponse: catch");
                     Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
