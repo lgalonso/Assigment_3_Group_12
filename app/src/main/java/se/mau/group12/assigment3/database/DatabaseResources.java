@@ -19,7 +19,7 @@ public class DatabaseResources {
     private int[] abs_difficulty = {2, 2, 3};
     private int[] abs_duration = {3, 6, 4};
     private int[] abs_timestamps = {12, 42, 467};
-    private String[] abs_images = {"push_up.png", "sit_up.png", "t_cross_sit_up.png"};
+    private String[] abs_images = {"push_up", "sit_up", "t_cross_sit_up"};
 
 //    private String[] arms_name = {"Bicep Curl 21's", "Hammer Curls", "Rear Delt Flyes", "Tricep Kick Backs"};
 //    private String[] arms_description = {"Raise and lower forearms.",
@@ -35,7 +35,7 @@ public class DatabaseResources {
     private int[] legs_difficulty = {2, 4, 3};
     private int[] legs_duration = {3, 2, 5};
     private int[] legs_timestamps = {99, 134, 155};
-    private String[] legs_images = {"leg_lift.png", "lunge.png", "squat.png"};
+    private String[] legs_images = {"leg_lift", "lunge", "squat"};
 
     private String[] full_body_name = {"Squat Jumps", "Lay Down-Push Up", "1 Leg Glute Bridge"};
     private String[] full_body_description = {"Squat down and jump up.",
@@ -43,7 +43,7 @@ public class DatabaseResources {
     private int[] full_body_difficulty = {2, 4, 3};
     private int[] full_body_duration = {2, 2, 2};
     private int[] full_body_timestamps = {11, 431, 851};
-    private String[] full_body_images = {"bike.png", "lunge_with_dumbbell.png", "treadmill.png"};
+    private String[] full_body_images = {"bike", "lunge_with_dumbbell", "treadmill"};
 
     private String[] shoulders_back_name = {"Underhand Row", "Rear Flys", "Lumbar Extensions"};
     private String[] shoulders_back_description = {"Lower back and pull arms back.",
@@ -51,7 +51,7 @@ public class DatabaseResources {
     private int[] shoulders_back_difficulty = {2, 4, 3};
     private int[] shoulders_back_duration = {2, 2, 4};
     private int[] shoulders_back_timestamps = {460, 580, 1688};
-    private String[] shoulders_back_images = {"back_on_swiss_ball.png", "pull_up.png", "vinst_on_swiss_ball.png"};
+    private String[] shoulders_back_images = {"back_on_swiss_ball", "pull_up", "vinst_on_swiss_ball"};
 
     private int[] exercise_interval = {1, 2, 3};
 

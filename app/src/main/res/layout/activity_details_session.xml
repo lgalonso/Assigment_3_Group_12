@@ -20,6 +20,7 @@
 
 
         <ImageView
+            android:id="@+id/imgDeatailsSession"
             android:layout_width="191dp"
             android:layout_height="match_parent"
             android:src="@drawable/squat" />

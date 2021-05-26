@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import se.mau.group12.assigment3.DetailsSessionActivity;
 import se.mau.group12.assigment3.R;
+import se.mau.group12.assigment3.SessionsActivity;
 
 public class TrainingsFragment extends Fragment {
 
@@ -38,7 +39,7 @@ public class TrainingsFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getContext(), DetailsSessionActivity.class);
+                Intent intent = new Intent(getContext(), SessionsActivity.class);
                 intent.putExtra("Title","ABS");
                 startActivity(intent);
             }
@@ -54,7 +55,7 @@ public class TrainingsFragment extends Fragment {
         buttonLegs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), DetailsSessionActivity.class);
+                Intent intent = new Intent(getContext(), SessionsActivity.class);
                 intent.putExtra("Title","LEGS");
                 startActivity(intent);
             }
@@ -63,7 +64,7 @@ public class TrainingsFragment extends Fragment {
         buttonFullBody.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), DetailsSessionActivity.class);
+                Intent intent = new Intent(getContext(), SessionsActivity.class);
                 intent.putExtra("Title","FULL");
                 startActivity(intent);
             }
@@ -72,7 +73,7 @@ public class TrainingsFragment extends Fragment {
         buttonShouldersAndBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), DetailsSessionActivity.class);
+                Intent intent = new Intent(getContext(), SessionsActivity.class);
                 intent.putExtra("Title","SHOU");
                 startActivity(intent);
             }

@@ -4,6 +4,7 @@ package se.mau.group12.assigment3;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
@@ -20,6 +21,7 @@ import java.util.List;
 import se.mau.group12.assigment3.database.Exercise;
 
 public class RecyclerSessions extends RecyclerView.Adapter<RecyclerSessions.ViewHolder> {
+    private static final String TAG = "RecyclerSessions";
     private Context context;
     private List<Exercise> sessions;
     TextView textViewTitle;
@@ -42,8 +44,17 @@ public class RecyclerSessions extends RecyclerView.Adapter<RecyclerSessions.View
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerSessions.ViewHolder holder, int position) {
+        //Todo fix issue unable to find resource id
         Resources resources = context.getResources();
-        final int resId = resources.getIdentifier(sessions.get(position).getImage(), "drawable", context.getPackageName());
+
+        String imageName = sessions.get(position).getImage();
+        Log.d(TAG, "onBindViewHolder: "+imageName);
+        if(imageName.contains(".png")){
+            imageName = imageName.split("\\.")[0];
+        }
+        Log.d(TAG, "onBindViewHolder: "+imageName);
+
+        int resId = resources.getIdentifier(imageName, "drawable", context.getPackageName());
 
         holder.title.setText(sessions.get(position).getName());
         holder.image.setImageDrawable(resources.getDrawable(resId));

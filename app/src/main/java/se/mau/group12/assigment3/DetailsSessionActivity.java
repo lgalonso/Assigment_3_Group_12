@@ -2,23 +2,20 @@ package se.mau.group12.assigment3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 import se.mau.group12.assigment3.database.AppDatabase;
 import se.mau.group12.assigment3.database.Exercise;
-import se.mau.group12.assigment3.database.Training;
 
 public class DetailsSessionActivity extends AppCompatActivity {
 
@@ -45,7 +42,7 @@ public class DetailsSessionActivity extends AppCompatActivity {
 
         btnStart = findViewById(R.id.StartButton);
 
-        imgSession = findViewById(R.id.imageSession);
+        imgSession = findViewById(R.id.imgDeatailsSession);
 
         timerValue = findViewById(R.id.timerValue);
         description = findViewById(R.id.descriptionDetailsSession);
@@ -72,8 +69,16 @@ public class DetailsSessionActivity extends AppCompatActivity {
 
         title.setText(exercise.getName());
         description.setText(exercise.getDescription());
-        timeSession.setText(exercise.getDuration());
-        final int resId = resources.getIdentifier(exercise.getImage(), "drawable", getPackageName());
+        timeSession.setText(exercise.getDuration()+" minutes");
+
+        mTimeLeftInMillis = TimeUnit.MINUTES.toMillis(exercise.getDuration());
+
+        String imageName = exercise.getImage();
+        if(imageName.contains(".png")){
+            imageName = imageName.split("\\.")[0];
+        }
+
+        final int resId = resources.getIdentifier(imageName, "drawable", getPackageName());
         imgSession.setImageDrawable(resources.getDrawable(resId));
 
     }

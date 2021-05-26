@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import se.mau.group12.assigment3.database.AppDatabase;
@@ -27,6 +28,8 @@ public class SessionsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sessions);
+
+        session = new ArrayList<Exercise>();
 
         textViewTitle = findViewById(R.id.TitleTrainingChoose);
         recyclerView = findViewById(R.id.recyclerViewSessionsTraining);
