@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //CHECK EMAIL AND PASSWORD
-                User user = new User();
+                User user;
                 user = db.userDao().findByEmailPassword(emailInput.getText().toString(), passwordInput.getText().toString());
                 SharedPreferences.Editor editor = sp.edit();
                 editor.putString("name", user.getName());

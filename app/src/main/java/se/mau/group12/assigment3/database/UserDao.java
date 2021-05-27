@@ -5,6 +5,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import java.util.Date;
 import java.util.List;
 
 @Dao
@@ -27,7 +28,7 @@ public interface UserDao {
     User findByEmailPassword(String email, String password);
 
     @Query("UPDATE user SET training_key_1 = :training_key_1, start_date = :start_date WHERE uid LIKE :uid ")
-    User setTrainingById(String training_key_1, String start_date, int uid);
+    User setTrainingById(String training_key_1, Date start_date, int uid);
 
 //    @Insert
 //    void insertAll(User... users);
