@@ -1,5 +1,7 @@
 package se.mau.group12.assigment3;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -21,6 +23,7 @@ public class RegisterActivity extends AppCompatActivity {
     AppDatabase db;
     User user;
     UserDao userDao;
+    SharedPreferences sp;
 
     Button loginButton;
     EditText name, surname, email, password;
@@ -29,6 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        sp = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE);
 
         db = AppDatabase.getInstance(RegisterActivity.this);
         DatabaseResources databaseResources = new DatabaseResources();
@@ -60,7 +64,12 @@ public class RegisterActivity extends AppCompatActivity {
 
                 userDao.insert(user);
 
-                //Todo get id of registered user and store in shared preferences
+                user = db.userDao().findByEmailPassword(user.getEmail(), user.getPassword());
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString("name", user.getName());
+                editor.putString("surname", user.getSurname());
+                editor.putString("user_id", String.valueOf(user.getUid()));
+                editor.commit();
 
                 //Todo intent to change activity
             }
