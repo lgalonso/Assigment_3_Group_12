@@ -71,7 +71,7 @@
         android:layout_marginLeft="26dp"
         android:layout_marginEnd="27dp"
         android:layout_marginRight="27dp"
-        android:layout_marginBottom="96dp"
+        android:layout_marginBottom="52dp"
         android:background="@drawable/fullbody"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

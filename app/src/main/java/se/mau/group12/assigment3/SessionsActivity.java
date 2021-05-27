@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -19,7 +21,7 @@ public class SessionsActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerSessions recyclerSessions;
     TextView textViewTitle;
-
+    Button souscribeButton;
     List<Exercise> session;
 
 
@@ -34,6 +36,8 @@ public class SessionsActivity extends AppCompatActivity {
         textViewTitle = findViewById(R.id.TitleTrainingChoose);
         recyclerView = findViewById(R.id.recyclerViewSessionsTraining);
 
+        souscribeButton = findViewById(R.id.Button_souscribe);
+
         getSessionFromDatabase(getIntent().getStringExtra("Title"));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -43,6 +47,14 @@ public class SessionsActivity extends AppCompatActivity {
         // from the intent we get the name of the training
         String title = getIntent().getStringExtra("Title");
         textViewTitle.setText(title);
+
+        souscribeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
 
     }
 
