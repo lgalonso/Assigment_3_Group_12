@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //CHECK EMAIL AND PASSWORD
+                //todo store in shared preferences the user id/name+surname to update him later on
                 Intent intent = new Intent(MainActivity.this,HomeActivity.class);
                 intent.putExtra("temperature",temperature);
                 intent.putExtra("weather",weather);

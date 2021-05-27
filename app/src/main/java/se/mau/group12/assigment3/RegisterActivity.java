@@ -31,6 +31,8 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         db = AppDatabase.getInstance(RegisterActivity.this);
+        DatabaseResources databaseResources = new DatabaseResources();
+        databaseResources.loadResources(RegisterActivity.this);
 
         user = new User();
         userDao = db.userDao();

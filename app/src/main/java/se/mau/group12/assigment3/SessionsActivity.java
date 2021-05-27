@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import se.mau.group12.assigment3.database.AppDatabase;
+import se.mau.group12.assigment3.database.DatabaseResources;
 import se.mau.group12.assigment3.database.Exercise;
 import se.mau.group12.assigment3.database.Training;
 
@@ -51,7 +52,8 @@ public class SessionsActivity extends AppCompatActivity {
         souscribeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //todo update database user training
+                //add start date and training name
             }
         });
 
@@ -60,6 +62,7 @@ public class SessionsActivity extends AppCompatActivity {
 
     private void getSessionFromDatabase(String trainingName) {
         AppDatabase db = AppDatabase.getInstance(SessionsActivity.this);
+
         Training training = new Training();
 
         switch (trainingName) {

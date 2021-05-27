@@ -51,7 +51,7 @@ public class DatabaseResources {
     private int[] shoulders_back_difficulty = {2, 4, 3};
     private int[] shoulders_back_duration = {2, 2, 4};
     private int[] shoulders_back_timestamps = {460, 580, 1688};
-    private String[] shoulders_back_images = {"back_on_swiss_ball", "pull_up", "vinst_on_swiss_ball"};
+    private String[] shoulders_back_images = {"back_on_swiss_ball", "pull_up", "pull_up"};
 
     private int[] exercise_interval = {1, 2, 3};
 
