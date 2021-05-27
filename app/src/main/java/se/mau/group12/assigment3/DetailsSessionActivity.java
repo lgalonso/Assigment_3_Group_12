@@ -61,23 +61,6 @@ public class DetailsSessionActivity extends YouTubeBaseActivity {
         title= findViewById(R.id.titleDetailsSession);
 
         youTubeVideo = findViewById(R.id.youtube_view);
-        onInitializedListener = new YouTubePlayer.OnInitializedListener() {
-            @Override
-            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-
-                /// REPLACE HERE WITH LINK FROM THE DATABASE
-                String link = "a4NT5iBFuZs";
-                int timeStamp = 0;
-
-                youTubePlayer.loadVideo(link,timeStamp);
-            }
-
-            @Override
-            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-
-            }
-        };
-        youTubeVideo.initialize("AIzaSyAYdEGnQOYZHdlrn4rnx71AVqaC1m_6mHg",onInitializedListener);
 
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,6 +93,22 @@ public class DetailsSessionActivity extends YouTubeBaseActivity {
 
         final int resId = resources.getIdentifier(imageName, "drawable", getPackageName());
         imgSession.setImageDrawable(resources.getDrawable(resId));
+
+        onInitializedListener = new YouTubePlayer.OnInitializedListener() {
+            @Override
+            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+                String link = exercise.getVideo_id();
+                int timeStamp = exercise.getVideo_timestamp() * 1000;
+
+                youTubePlayer.loadVideo(link,timeStamp);
+            }
+
+            @Override
+            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+
+            }
+        };
+        youTubeVideo.initialize("AIzaSyAYdEGnQOYZHdlrn4rnx71AVqaC1m_6mHg",onInitializedListener);
 
     }
 
