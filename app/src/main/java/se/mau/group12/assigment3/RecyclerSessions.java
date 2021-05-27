@@ -46,6 +46,7 @@ public class RecyclerSessions extends RecyclerView.Adapter<RecyclerSessions.View
     public void onBindViewHolder(@NonNull RecyclerSessions.ViewHolder holder, int position) {
         Resources resources = context.getResources();
 
+        //todo fix issue with null object reference
 //        Log.d(TAG, "onBindViewHolder: "+sessions.get(position).getImage());
         String imageName = sessions.get(position).getImage();
         Log.d(TAG, "onBindViewHolder: "+imageName);
