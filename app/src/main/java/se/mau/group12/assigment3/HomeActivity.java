@@ -55,7 +55,9 @@ public class HomeActivity extends AppCompatActivity {
         });
         Intent intent = getIntent();
         temperature = intent.getStringExtra("temperature");
+        System.out.println("t= "+temperature);
         weather = intent.getStringExtra("weather");
+        System.out.println("w= "+ weather);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
