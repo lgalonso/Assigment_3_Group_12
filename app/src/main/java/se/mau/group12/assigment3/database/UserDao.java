@@ -19,11 +19,15 @@ public interface UserDao {
             "surname LIKE :last LIMIT 1")
     User findByName(String first, String last);
 
+    @Query("SELECT * FROM user WHERE uid LIKE :uid LIMIT 1")
+    User findById(int uid);
+
     @Query("SELECT * FROM user WHERE email LIKE :email AND " +
             "password LIKE :password LIMIT 1")
     User findByEmailPassword(String email, String password);
 
-    //Todo set training + start date of user
+    @Query("UPDATE user SET training_key_1 = :training_key_1, start_date = :start_date WHERE uid LIKE :uid ")
+    User setTrainingById(String training_key_1, String start_date, int uid);
 
 //    @Insert
 //    void insertAll(User... users);
