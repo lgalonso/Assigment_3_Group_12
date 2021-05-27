@@ -85,11 +85,8 @@ public class HomeActivity extends AppCompatActivity {
 
     public String get_temp()
     {
-        double temp = Double.parseDouble(temperature);
-        temp = temp - 273.15;
-        temp = (double) Math.round(temp * 100) / 100;
-        temperature = String. valueOf(temp)+"°";
-        return temperature;
+
+        return temperature+"°";
     }
     public String get_weather()
     {

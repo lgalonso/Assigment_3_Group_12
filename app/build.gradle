@@ -42,8 +42,8 @@ dependencies {
     //implementation fileTree(dir: 'C:\\Users\\mathi\\AndroidStudioProjects\\Assigment_3_Group_12\\libs', include: ['*.aar', '*.jar'], exclude: [])
     //implementation fileTree( dir: 'C:\\Users\\mathi\\AndroidStudioProjects\\Assigment_3_Group_12\\libs', include: ['*.aar', '*.jar'], exclude: [])
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    //implementation files('..\\libs\\YouTubeAndroidPlayerApi.jar')
-    implementation files('../libs/YouTubeAndroidPlayerApi.jar')
+    implementation files('..\\libs\\YouTubeAndroidPlayerApi.jar')
+    //implementation files('../libs/YouTubeAndroidPlayerApi.jar')
     implementation'com.android.volley:volley:1.2.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

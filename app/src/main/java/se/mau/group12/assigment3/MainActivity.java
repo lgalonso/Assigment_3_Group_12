@@ -93,6 +93,10 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject jsonPart = object2.getJSONObject(0);
                     temperature = object.getString("temp");
                     weather = jsonPart.getString("main");
+                    double temp = Double.parseDouble(temperature);
+                    temp = temp - 273.15;
+                    temp = (double) Math.round(temp * 100) / 100;
+                    temperature = String. valueOf(temp);
                     Log.i("TAG", "onResponse: "+weather);
                     Log.i("TAG", "onResponse: "+temperature);
                 } catch (JSONException e) {

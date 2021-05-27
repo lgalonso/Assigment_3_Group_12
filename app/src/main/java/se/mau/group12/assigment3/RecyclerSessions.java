@@ -44,7 +44,6 @@ public class RecyclerSessions extends RecyclerView.Adapter<RecyclerSessions.View
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerSessions.ViewHolder holder, int position) {
-        //Todo fix issue unable to find resource id
         Resources resources = context.getResources();
 
         String imageName = sessions.get(position).getImage();
