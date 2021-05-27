@@ -19,6 +19,10 @@ public interface UserDao {
             "surname LIKE :last LIMIT 1")
     User findByName(String first, String last);
 
+    @Query("SELECT * FROM user WHERE email LIKE :email AND " +
+            "password LIKE :password LIMIT 1")
+    User findByEmailPassword(String email, String password);
+
     //Todo set training + start date of user
 
 //    @Insert

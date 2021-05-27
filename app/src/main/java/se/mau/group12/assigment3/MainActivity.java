@@ -3,7 +3,9 @@ package se.mau.group12.assigment3;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.VoiceInteractor;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaCodec;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
     String temperature = "";
     String weather ="";
     AppDatabase db;
+    TextView emailInput;
+    TextView passwordInput;
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +49,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getWeatherAPI();
 
+        sp = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE);
+
         // Database and populate it with the db resources
         db = AppDatabase.getInstance(MainActivity.this);
         DatabaseResources databaseResources = new DatabaseResources();
         databaseResources.loadResources(MainActivity.this);
+
+        emailInput = findViewById(R.id.login_email_input);
+        passwordInput = findViewById(R.id.login_password_input);
 
         signInButton = findViewById(R.id.button_Sign_in);
 
@@ -55,7 +65,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //CHECK EMAIL AND PASSWORD
-                //todo store in shared preferences the user id/name+surname to update him later on
+                User user = new User();
+                user = db.userDao().findByEmailPassword(emailInput.getText().toString(), passwordInput.getText().toString());
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString("name", user.getName());
+                editor.putString("surname", user.getSurname());
+                editor.putString("user_id", String.valueOf(user.getUid()));
+                editor.commit();
                 Intent intent = new Intent(MainActivity.this,HomeActivity.class);
                 intent.putExtra("temperature",temperature);
                 intent.putExtra("weather",weather);
