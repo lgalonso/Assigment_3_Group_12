@@ -12,17 +12,25 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import se.mau.group12.assigment3.R;
+import se.mau.group12.assigment3.RecyclerSessions;
+import se.mau.group12.assigment3.database.Exercise;
 
 public class CalendarFragment extends Fragment {
 
     private CalendarViewModel calendarViewModel;
 
     private CalendarView calendar;
-    private TextView textViewtitle;
-    private ImageView imageView;
-    private  Button btnNext;
+    RecyclerView recyclerView;
+    RecyclerSessions recyclerSessions;
+    List<Exercise> session;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -31,9 +39,13 @@ public class CalendarFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_calendar, container, false);
 
         calendar = (CalendarView) root.findViewById(R.id.calendarView);
-        textViewtitle = root.findViewById(R.id.textViewTitleCalendar);
-        imageView = root.findViewById(R.id.imageCalendar);
-        btnNext = root.findViewById(R.id.buttonNextCalendar);
+        recyclerView = root.findViewById(R.id.recyclerViewCalendar);
+
+        session = new ArrayList<Exercise>();
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerSessions = new RecyclerSessions(session);
+        recyclerView.setAdapter(recyclerSessions);
 
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
                             @Override
@@ -46,13 +58,6 @@ public class CalendarFragment extends Fragment {
                             }
                         });
 
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //OPEN DETAILSSESSIONACTIVITY WITH GOOD SESSION (USE DATABASE)
-
-            }
-        });
         return root;
     }
 }

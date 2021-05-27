@@ -49,8 +49,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
         android:layout_marginBottom="58dp"
         android:text="Tuesday, May 17"
         android:textSize="16sp"
@@ -152,7 +152,7 @@
         android:layout_marginLeft="22dp"
         android:layout_marginEnd="22dp"
         android:layout_marginRight="22dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/input_design"
         android:backgroundTint="@color/yellow"
         android:orientation="horizontal"
@@ -161,7 +161,7 @@
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent">
 
 
