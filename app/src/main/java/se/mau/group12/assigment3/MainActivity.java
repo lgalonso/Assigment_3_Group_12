@@ -26,17 +26,29 @@ import org.json.JSONObject;
 
 import se.mau.group12.assigment3.ui.home.HomeFragment;
 
+import se.mau.group12.assigment3.database.AppDatabase;
+import se.mau.group12.assigment3.database.DatabaseResources;
+import se.mau.group12.assigment3.database.User;
+import se.mau.group12.assigment3.database.UserDao;
+
 public class MainActivity extends AppCompatActivity {
 
     Button signInButton, createAccountButton;
     String temperature = "";
     String weather ="";
+    AppDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getWeatherAPI();
+
+        // Database and populate it with the db resources
+        db = AppDatabase.getInstance(MainActivity.this);
+        DatabaseResources databaseResources = new DatabaseResources();
+        databaseResources.loadResources(MainActivity.this);
+
         signInButton = findViewById(R.id.button_Sign_in);
 
         signInButton.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
     public String getWeatherAPI()
     {

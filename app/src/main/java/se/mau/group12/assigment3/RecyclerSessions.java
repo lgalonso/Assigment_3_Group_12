@@ -1,6 +1,10 @@
 package se.mau.group12.assigment3;
 
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
@@ -14,12 +18,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class RecyclerSessions extends RecyclerView.Adapter<RecyclerSessions.ViewHolder> {
+import se.mau.group12.assigment3.database.Exercise;
 
-    private List sessions; // CHANGE WITH DATABASE
+public class RecyclerSessions extends RecyclerView.Adapter<RecyclerSessions.ViewHolder> {
+    private static final String TAG = "RecyclerSessions";
+    private Context context;
+    private List<Exercise> sessions;
     TextView textViewTitle;
 
-    public RecyclerSessions(List expenses) {
+    public RecyclerSessions(List<Exercise> expenses) {
         this.sessions= expenses;
     }
 
@@ -28,26 +35,39 @@ public class RecyclerSessions extends RecyclerView.Adapter<RecyclerSessions.View
     public RecyclerSessions.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_row, parent, false);
         textViewTitle = view.findViewById(R.id.textViewTitle);
-        return new ViewHolder(view);
+
+        ViewHolder vh = new ViewHolder(view);
+        context = parent.getContext();
+
+        return vh;
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerSessions.ViewHolder holder, int position) {
+        //Todo fix issue unable to find resource id
+        Resources resources = context.getResources();
 
-        TextView textViewtitle = holder.itemView.findViewById(R.id.textViewTitle);
-        ImageView imageView = holder.itemView.findViewById(R.id.imageSession);
+        String imageName = sessions.get(position).getImage();
+        Log.d(TAG, "onBindViewHolder: "+imageName);
+        if(imageName.contains(".png")){
+            imageName = imageName.split("\\.")[0];
+        }
+        Log.d(TAG, "onBindViewHolder: "+imageName);
+
+        int resId = resources.getIdentifier(imageName, "drawable", context.getPackageName());
+
+        holder.title.setText(sessions.get(position).getName());
+        holder.image.setImageDrawable(resources.getDrawable(resId));
         Button btnNext = holder.itemView.findViewById(R.id.buttonNextDetailsSession);
-
-
-
-        // USE DATABASE TO SET TEXT
-        //   ....
-
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // OPEN DETAILS SESSION ACTIVITY WITH INFO OF THE SESSION
+                // Create an intent to receive it on the DetailsSessionActivity
+                Intent intent = new Intent(context, DetailsSessionActivity.class);
+                intent.putExtra("exercise", holder.title.getText().toString());
+                context.startActivity(intent);
             }
         });
 
@@ -60,8 +80,13 @@ public class RecyclerSessions extends RecyclerView.Adapter<RecyclerSessions.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        private TextView title;
+        private ImageView image;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            title = itemView.findViewById(R.id.textViewTitle);
+            image = itemView.findViewById(R.id.imageSession);
         }
     }
 }

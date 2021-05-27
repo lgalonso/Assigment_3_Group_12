@@ -42,13 +42,14 @@ public class CalendarFragment extends Fragment {
 
                                 String Date = dayOfMonth + "-" + (month + 1) + "-" + year;
                                 //USE DATABASE TO CHANGE TITLE AND IMAGE
+                                //get exercise name for the selected Date
                             }
                         });
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //OPEN DETAILSSESSIONACTIVITY WITH GOOD SESSION ( USE DATABASE°
+                //OPEN DETAILSSESSIONACTIVITY WITH GOOD SESSION (USE DATABASE)
 
             }
         });
