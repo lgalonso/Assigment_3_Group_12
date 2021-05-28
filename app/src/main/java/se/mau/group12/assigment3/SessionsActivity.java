@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -75,8 +77,17 @@ public class SessionsActivity extends AppCompatActivity {
                 user = db.userDao().findById(Integer.parseInt(sp.getString("user_id", "-1")));
                 db.userDao().setTrainingById(training.getName(), currentTime, user.getUid());
                 user = db.userDao().findById(Integer.parseInt(sp.getString("user_id", "-1")));
-                Toast.makeText(getApplicationContext(),"Subscribe to " + title + " training done",Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(),"Subscribe to " + title + " training done",Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder alBuild = new AlertDialog.Builder(SessionsActivity.this);
+                alBuild.setTitle("Subscription Successful")
+                        .setMessage("Subscribe to " + title + " training done")
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
 
+                            }
+                        }).create();
+                alBuild.show();
             }
         });
 
