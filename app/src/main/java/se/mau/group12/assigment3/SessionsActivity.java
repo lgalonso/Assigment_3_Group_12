@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -24,7 +25,7 @@ import se.mau.group12.assigment3.database.Training;
 import se.mau.group12.assigment3.database.User;
 
 public class SessionsActivity extends AppCompatActivity {
-
+    private static final String TAG = "SessionsActivity";
     RecyclerView recyclerView;
     RecyclerSessions recyclerSessions;
     TextView textViewTitle;
@@ -64,14 +65,15 @@ public class SessionsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //todo message user that subscription was successful
-                Training training = new Training();
+                Training training;
                 training = getTraining(title);
                 Date currentTime = Calendar.getInstance().getTime();
                 //String dateFormatted = formatter.format(currentTime);
 
-                User user = new User();
-                user = db.userDao().findById(Integer.parseInt(sp.getString("user_id", "")));
+                User user;
+                user = db.userDao().findById(Integer.parseInt(sp.getString("user_id", "-1")));
                 db.userDao().setTrainingById(training.getName(), currentTime, user.getUid());
+                user = db.userDao().findById(Integer.parseInt(sp.getString("user_id", "-1")));
             }
         });
 
@@ -114,10 +116,10 @@ public class SessionsActivity extends AppCompatActivity {
                         training.getExercise_key_2()
                 )
         );
-       /* session.add(
-                db.exerciseDao().getExerciseByName(
-                        training.getExercise_key_3()
-
-        ); )*/
+//       session.add(
+//                db.exerciseDao().getExerciseByName(
+//                        training.getExercise_key_3()
+//
+//        ));
     }
 }

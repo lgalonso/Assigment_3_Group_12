@@ -51,7 +51,7 @@ public class DatabaseResources {
     private int[] shoulders_back_difficulty = {2, 4, 3};
     private int[] shoulders_back_duration = {2, 2, 4};
     private int[] shoulders_back_timestamps = {460, 580, 1688};
-    private String[] shoulders_back_images = {"back_on_swiss_ball", "pull_up", "pull_up"};
+    private String[] shoulders_back_images = {"back_on_swiss_ball", "pull_up", "vinst_on_swiss_ball"};
 
     private int[] exercise_interval = {1, 2, 3};
 
@@ -71,7 +71,7 @@ public class DatabaseResources {
 
             switch (i){
                 case 0:
-                    for (int j = 0; j < 2; j++) {
+                    for (int j = 0; j < 3; j++) {
                         exercise.setName(abs_name[j]);
                         exercise.setDescription(abs_description[j]);
                         exercise.setDifficulty(abs_difficulty[j]);
@@ -97,7 +97,7 @@ public class DatabaseResources {
                     }
                     break;
                 case 1:
-                    for (int j = 0; j < 2; j++) {
+                    for (int j = 0; j < 3; j++) {
                         exercise.setName(legs_name[j]);
                         exercise.setDescription(legs_description[j]);
                         exercise.setDifficulty(legs_difficulty[j]);
@@ -123,7 +123,7 @@ public class DatabaseResources {
                     }
                     break;
                 case 2:
-                    for (int j = 0; j < 2; j++) {
+                    for (int j = 0; j < 3; j++) {
                         exercise.setName(full_body_name[j]);
                         exercise.setDescription(full_body_description[j]);
                         exercise.setDifficulty(full_body_difficulty[j]);
@@ -149,7 +149,7 @@ public class DatabaseResources {
                     }
                     break;
                 case 3:
-                    for (int j = 0; j < 2; j++) {
+                    for (int j = 0; j < 3; j++) {
                         exercise.setName(shoulders_back_name[j]);
                         exercise.setDescription(shoulders_back_description[j]);
                         exercise.setDifficulty(shoulders_back_difficulty[j]);

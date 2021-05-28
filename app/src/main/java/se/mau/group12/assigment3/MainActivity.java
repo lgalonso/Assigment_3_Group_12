@@ -67,11 +67,13 @@ public class MainActivity extends AppCompatActivity {
                 //CHECK EMAIL AND PASSWORD
                 User user;
                 user = db.userDao().findByEmailPassword(emailInput.getText().toString(), passwordInput.getText().toString());
+
                 SharedPreferences.Editor editor = sp.edit();
                 editor.putString("name", user.getName());
                 editor.putString("surname", user.getSurname());
                 editor.putString("user_id", String.valueOf(user.getUid()));
                 editor.commit();
+
                 Intent intent = new Intent(MainActivity.this,HomeActivity.class);
                 intent.putExtra("temperature",temperature);
                 intent.putExtra("weather",weather);

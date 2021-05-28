@@ -1,5 +1,6 @@
 package se.mau.group12.assigment3.ui.calendar;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -56,11 +57,21 @@ public class CalendarFragment extends Fragment {
         calendar = (CalendarView) root.findViewById(R.id.calendarView);
         recyclerView = root.findViewById(R.id.recyclerViewCalendar);
 
+        sp = root.getContext().getSharedPreferences("UserPrefs", Context.MODE_PRIVATE);
+
         db = AppDatabase.getInstance(root.getContext());
 
         session = new ArrayList<Exercise>();
 
+        User user = db.userDao().findById(Integer.parseInt(sp.getString("user_id", "-1")));
 
+        Training training = getTraining(user.getTraining_key_1());
+
+        session.add(
+                db.exerciseDao().getExerciseByName(
+                        training.getExercise_key_1()
+                )
+        );
 
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
                             @RequiresApi(api = Build.VERSION_CODES.O)
@@ -70,21 +81,11 @@ public class CalendarFragment extends Fragment {
 
                                 String Date = dayOfMonth + "-" + (month + 1) + "-" + year;
 
-                                User user = db.userDao().findById(Integer.parseInt(sp.getString("user_id", "-1")));
-
-                                Training training = getTraining(user.getTraining_key_1());
-
-                                session.add(
-                                        db.exerciseDao().getExerciseByName(
-                                                training.getExercise_key_1()
-                                        )
-                                );
-
                                 try {
                                     long numberOfDays = DAYS.between(user.getStart_date().toInstant(), formatter.parse(Date).toInstant());
-                                    Log.d(TAG, "onSelectedDayChange NUM OF DAYS: " + numberOfDays);
 
-                                    if(numberOfDays%2 == 0) {
+                                    Log.d(TAG, "onSelectedDayChange NUM OF DAYS: " + numberOfDays);
+                                    if(numberOfDays > 0 && numberOfDays%2 == 0) {
                                         session.add(
                                                 db.exerciseDao().getExerciseByName(
                                                         training.getExercise_key_2()
@@ -92,16 +93,18 @@ public class CalendarFragment extends Fragment {
                                         );
                                     }
 
-                                    if(numberOfDays%3 == 0) {
-                                        session.add(
-                                                db.exerciseDao().getExerciseByName(
-                                                        training.getExercise_key_3()
-                                                )
-                                        );
+                                    if(numberOfDays > 0 && numberOfDays%3 == 0) {
+//                                        session.add(
+//                                                db.exerciseDao().getExerciseByName(
+//                                                        training.getExercise_key_3()
+//                                                )
+//                                        );
                                     }
                                 } catch (ParseException e) {
                                     e.printStackTrace();
                                 }
+
+                                //todo update the fragment so it reloads the fragment
                             }
                         });
 
@@ -115,20 +118,7 @@ public class CalendarFragment extends Fragment {
     private Training getTraining(String trainingName) {
         Training training = new Training();
 
-        switch (trainingName) {
-            case "ABS":
-                training = db.trainingDao().getTrainingByName("Abs workout");
-                break;
-            case "LEGS":
-                training = db.trainingDao().getTrainingByName("Legs Workout");
-                break;
-            case "FULL":
-                training = db.trainingDao().getTrainingByName("Full Body workout");
-                break;
-            case "SHOU":
-                training = db.trainingDao().getTrainingByName("Shoulders and back workout");
-                break;
-        }
+        training = db.trainingDao().getTrainingByName(trainingName);
 
         return training;
     }
