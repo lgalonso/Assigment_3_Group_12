@@ -137,7 +137,7 @@
         android:background="@drawable/input_design"
         android:backgroundTint="@color/pink"
         android:gravity="center"
-        android:text="1 session / 3"
+        android:text="1 session"
         android:textColor="@color/white"
         android:textSize="17sp"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
@@ -165,6 +165,15 @@
         app:layout_constraintStart_toStartOf="parent">
 
 
+        <Button
+            android:id="@+id/buttonNextHome"
+            android:layout_width="42dp"
+            android:layout_height="38dp"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/ic_baseline_navigate_next_24"
+            android:backgroundTint="@color/black" />
+
         <TextView
             android:id="@+id/textViewTitleHome"
             android:layout_width="wrap_content"
@@ -175,15 +184,6 @@
             android:text="Squat"
             android:textColor="@color/black"
             android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/buttonNextHome"
-            android:layout_width="42dp"
-            android:layout_height="38dp"
-            android:layout_marginLeft="160dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/ic_baseline_navigate_next_24"
-            android:backgroundTint="@color/black" />
 
     </LinearLayout>
 

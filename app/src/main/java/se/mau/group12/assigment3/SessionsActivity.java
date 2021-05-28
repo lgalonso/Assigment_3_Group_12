@@ -90,8 +90,6 @@ public class SessionsActivity extends AppCompatActivity {
                 alBuild.show();
             }
         });
-
-
     }
 
     private Training getTraining(String trainingName) {
