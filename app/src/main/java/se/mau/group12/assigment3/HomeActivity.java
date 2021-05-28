@@ -40,17 +40,13 @@ public class HomeActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private String temperature = "";
     private String weather = "";
-    SharedPreferences sp;
-
+    public static  String firstname;
+    private  String lastname;
+    private TextView name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-//        SharedPreferences sp = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE);
-//        sp.getString("name", "");
-//        sp.getString("surname", "");
-//        sp.getString("user_id", "");
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -61,6 +57,11 @@ public class HomeActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        firstname = getSharedPreferences("name",MODE_PRIVATE).getString("name","");
+        lastname = getSharedPreferences("name",MODE_PRIVATE).getString("surname","");
+
+
         Intent intent = getIntent();
         temperature = intent.getStringExtra("temperature");
         System.out.println("t= "+temperature);
@@ -68,6 +69,11 @@ public class HomeActivity extends AppCompatActivity {
         System.out.println("w= "+ weather);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+
+        View hView = navigationView.getHeaderView(0);
+        name= (TextView)hView.findViewById(R.id.user_profile_name);
+        name.setText(firstname + " " + lastname);
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(

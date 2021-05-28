@@ -21,7 +21,7 @@ import se.mau.group12.assigment3.R;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-    private TextView textViewtitle, numberSessionDone, textViewDateDay,textViewTemperatureDay, textWelcomeMessage;
+    private TextView textViewtitle, numberSessionDone, textViewDateDay,textViewTemperatureDay, textWelcomeMessage, textHelloname;
     private Button btnNext;
     private ImageView imageweather;
 
@@ -38,6 +38,7 @@ public class HomeFragment extends Fragment {
         textViewDateDay=root.findViewById(R.id.textViewDateDay);
         textViewTemperatureDay=root.findViewById(R.id.temperatureText);
         textWelcomeMessage = root.findViewById(R.id.WelcomeMessageWeather);
+        textHelloname= root.findViewById(R.id.textHelloName);
 
         imageweather =root.findViewById(R.id.imageWeather);
         String temperature = ((HomeActivity)getActivity()).get_temp();
@@ -49,6 +50,7 @@ public class HomeFragment extends Fragment {
         dateFormat = new SimpleDateFormat("EEE, MMM d, yyyy" );
         String date = dateFormat.format(calendar.getTime());
         textViewDateDay.setText(date);
+        textHelloname.setText("Hello " + HomeActivity.firstname);
         switch (weather)
         {
             case "Clouds":
