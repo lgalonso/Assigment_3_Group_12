@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -72,6 +73,8 @@ public class SessionsActivity extends AppCompatActivity {
                 User user = new User();
                 user = db.userDao().findById(Integer.parseInt(sp.getString("user_id", "")));
                 db.userDao().setTrainingById(training.getName(), currentTime, user.getUid());
+                Toast.makeText(getApplicationContext(),"Subscribe to " + title + " training done",Toast.LENGTH_SHORT).show();
+
             }
         });
 

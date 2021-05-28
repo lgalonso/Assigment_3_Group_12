@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     TextView emailInput;
     TextView passwordInput;
     SharedPreferences sp;
+    private SharedPreferences name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,18 +65,33 @@ public class MainActivity extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //CHECK EMAIL AND PASSWORD
-                User user;
-                user = db.userDao().findByEmailPassword(emailInput.getText().toString(), passwordInput.getText().toString());
-                SharedPreferences.Editor editor = sp.edit();
-                editor.putString("name", user.getName());
-                editor.putString("surname", user.getSurname());
-                editor.putString("user_id", String.valueOf(user.getUid()));
-                editor.commit();
-                Intent intent = new Intent(MainActivity.this,HomeActivity.class);
-                intent.putExtra("temperature",temperature);
-                intent.putExtra("weather",weather);
-                startActivity(intent);
+
+                String emailText = emailInput.getText().toString();
+                String passwordText = passwordInput.getText().toString();
+
+                if(emailText.isEmpty() || passwordText.isEmpty()){
+                    Toast.makeText(getApplicationContext(),"Fill all fiels",Toast.LENGTH_SHORT).show();
+                }else{
+                    User user;
+                    user = db.userDao().findByEmailPassword(emailText, passwordText);
+                    if(user==null){
+                        Toast.makeText(getApplicationContext(),"Invalid email or password",Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putString("name", user.getName());
+                        editor.putString("surname", user.getSurname());
+                        editor.putString("user_id", String.valueOf(user.getUid()));
+                        editor.apply();
+
+                        Intent intent = new Intent(MainActivity.this,HomeActivity.class);
+                        intent.putExtra("temperature",temperature);
+                        intent.putExtra("weather",weather);
+                        startActivity(intent);
+                    }
+
+                }
+
             }
         });
 
