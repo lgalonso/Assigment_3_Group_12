@@ -58,8 +58,8 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        firstname = getSharedPreferences("name",MODE_PRIVATE).getString("name","");
-        lastname = getSharedPreferences("name",MODE_PRIVATE).getString("surname","");
+        firstname = getSharedPreferences("UserPrefs",MODE_PRIVATE).getString("name","");
+        lastname = getSharedPreferences("UserPrefs",MODE_PRIVATE).getString("surname","");
 
 
         Intent intent = getIntent();
