@@ -26,8 +26,8 @@ public class RecyclerSessions extends RecyclerView.Adapter<RecyclerSessions.View
     private List<Exercise> sessions;
     TextView textViewTitle;
 
-    public RecyclerSessions(List<Exercise> expenses) {
-        this.sessions= expenses;
+    public RecyclerSessions(List<Exercise> sessions) {
+        this.sessions= sessions;
     }
 
     @NonNull

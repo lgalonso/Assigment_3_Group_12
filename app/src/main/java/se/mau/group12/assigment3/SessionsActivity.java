@@ -114,10 +114,10 @@ public class SessionsActivity extends AppCompatActivity {
                         training.getExercise_key_2()
                 )
         );
-        session.add(
+       /* session.add(
                 db.exerciseDao().getExerciseByName(
                         training.getExercise_key_3()
-                )
-        );
+
+        ); )*/
     }
 }

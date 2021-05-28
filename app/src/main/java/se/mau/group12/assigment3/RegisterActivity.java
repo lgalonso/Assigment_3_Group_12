@@ -1,6 +1,7 @@
 package se.mau.group12.assigment3;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -13,6 +14,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import se.mau.group12.assigment3.database.AppDatabase;
 import se.mau.group12.assigment3.database.DatabaseResources;
@@ -34,6 +36,8 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         sp = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE);
 
+        initComponents();
+
         db = AppDatabase.getInstance(RegisterActivity.this);
         DatabaseResources databaseResources = new DatabaseResources();
         databaseResources.loadResources(RegisterActivity.this);
@@ -54,9 +58,6 @@ public class RegisterActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                //Todo error handling
-
                 user.setName(name.getText().toString());
                 user.setSurname(surname.getText().toString());
                 user.setEmail(email.getText().toString());
@@ -71,7 +72,9 @@ public class RegisterActivity extends AppCompatActivity {
                 editor.putString("user_id", String.valueOf(user.getUid()));
                 editor.commit();
 
-                //Todo intent to change activity
+                Toast.makeText(getApplicationContext(), "user registred...", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
+                startActivity(intent);
             }
         });
     }

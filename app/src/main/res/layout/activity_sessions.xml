@@ -26,15 +26,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="114dp"
         android:layout_marginLeft="114dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="114dp"
         android:layout_marginRight="114dp"
-        android:layout_marginBottom="24dp"
         android:text="TITLE TRAINING"
         android:textColor="@color/black"
-        android:textSize="25dp"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerViewSessionsTraining"
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
@@ -42,10 +41,13 @@
         android:id="@+id/recyclerViewSessionsTraining"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="423dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="55dp"
+        android:layout_marginBottom="180dp"
+        app:layout_constraintBottom_toTopOf="@+id/Button_souscribe"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TitleTrainingChoose" />
 
     <Button
         android:id="@+id/Button_souscribe"
@@ -55,12 +57,14 @@
         android:layout_marginLeft="133dp"
         android:layout_marginEnd="134dp"
         android:layout_marginRight="134dp"
-        android:layout_marginBottom="116dp"
+        android:layout_marginBottom="56dp"
         android:background="@drawable/nav_bar_color"
-        android:text="Souscribe"
+        android:text="Subscribe"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 

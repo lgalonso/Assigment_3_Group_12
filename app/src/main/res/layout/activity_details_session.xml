@@ -82,7 +82,7 @@
         android:layout_marginLeft="13dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="33dp"
+        android:layout_marginBottom="16dp"
         android:text="While bracing your core and keeping your chest up and neck neutral, bend your knees and push your hips back as if you’re going to sit in a chair. Press through heels to stand back up to starting position. Repeat."
         android:textSize="13sp"
         app:layout_constraintBottom_toTopOf="@+id/youtube_view"
