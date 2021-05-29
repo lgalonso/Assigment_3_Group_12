@@ -67,18 +67,19 @@ public class CalendarFragment extends Fragment {
 
         Training training = getTraining(user.getTraining_key_1());
 
-        session.add(
-                db.exerciseDao().getExerciseByName(
-                        training.getExercise_key_1()
-                )
-        );
+
 
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
                             @RequiresApi(api = Build.VERSION_CODES.O)
                             @Override
                             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth)
                             {
-
+                                session.clear();
+                                session.add(
+                                        db.exerciseDao().getExerciseByName(
+                                                training.getExercise_key_1()
+                                        )
+                                );
                                 String Date = dayOfMonth + "-" + (month + 1) + "-" + year;
 
                                 try {
@@ -105,12 +106,13 @@ public class CalendarFragment extends Fragment {
                                 }
 
                                 //todo update the fragment so it reloads the fragment
+                                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                                recyclerSessions = new RecyclerSessions(session);
+                                recyclerView.setAdapter(recyclerSessions);
+
                             }
                         });
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerSessions = new RecyclerSessions(session);
-        recyclerView.setAdapter(recyclerSessions);
 
         return root;
     }
