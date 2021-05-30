@@ -40,7 +40,7 @@ public class TrainingsFragment extends Fragment {
             public void onClick(View v) {
 
                 Intent intent = new Intent(getContext(), SessionsActivity.class);
-                intent.putExtra("Title","ABS");
+                intent.putExtra("Title","Abs workout");
                 startActivity(intent);
             }
         });
@@ -49,7 +49,7 @@ public class TrainingsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), SessionsActivity.class);
-                intent.putExtra("Title","ARMS");
+                intent.putExtra("Title","Arms workout");
                 startActivity(intent);
             }
         });
@@ -58,7 +58,7 @@ public class TrainingsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), SessionsActivity.class);
-                intent.putExtra("Title","LEGS");
+                intent.putExtra("Title","Legs Workout");
                 startActivity(intent);
             }
         });
@@ -67,7 +67,7 @@ public class TrainingsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), SessionsActivity.class);
-                intent.putExtra("Title","FULL");
+                intent.putExtra("Title","Full Body workout");
                 startActivity(intent);
             }
         });
@@ -76,7 +76,7 @@ public class TrainingsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), SessionsActivity.class);
-                intent.putExtra("Title","SHOU");
+                intent.putExtra("Title","Shoulders and back workout");
                 startActivity(intent);
             }
         });

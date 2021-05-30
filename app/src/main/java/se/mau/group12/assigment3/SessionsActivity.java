@@ -94,24 +94,25 @@ public class SessionsActivity extends AppCompatActivity {
 
     private Training getTraining(String trainingName) {
         Training training = new Training();
+        training = db.trainingDao().getTrainingByName(trainingName);
 
-        switch (trainingName) {
-            case "ABS":
-                training = db.trainingDao().getTrainingByName("Abs workout");
-                break;
-            case "ARMS":
-                training = db.trainingDao().getTrainingByName("Arms workout");
-                break;
-            case "LEGS":
-                training = db.trainingDao().getTrainingByName("Legs Workout");
-                break;
-            case "FULL":
-                training = db.trainingDao().getTrainingByName("Full Body workout");
-                break;
-            case "SHOU":
-                training = db.trainingDao().getTrainingByName("Shoulders and back workout");
-                break;
-        }
+//        switch (trainingName) {
+//            case "ABS":
+//                training = db.trainingDao().getTrainingByName("Abs workout");
+//                break;
+//            case "ARMS":
+//                training = db.trainingDao().getTrainingByName("Arms workout");
+//                break;
+//            case "LEGS":
+//                training = db.trainingDao().getTrainingByName("Legs Workout");
+//                break;
+//            case "FULL":
+//                training = db.trainingDao().getTrainingByName("Full Body workout");
+//                break;
+//            case "SHOU":
+//                training = db.trainingDao().getTrainingByName("Shoulders and back workout");
+//                break;
+//        }
 
         return training;
     }
