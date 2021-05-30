@@ -99,6 +99,9 @@ public class SessionsActivity extends AppCompatActivity {
             case "ABS":
                 training = db.trainingDao().getTrainingByName("Abs workout");
                 break;
+            case "ARMS":
+                training = db.trainingDao().getTrainingByName("Arms workout");
+                break;
             case "LEGS":
                 training = db.trainingDao().getTrainingByName("Legs Workout");
                 break;

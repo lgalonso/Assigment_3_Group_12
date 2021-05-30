@@ -48,7 +48,9 @@ public class TrainingsFragment extends Fragment {
         buttonArms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getContext(), SessionsActivity.class);
+                intent.putExtra("Title","ARMS");
+                startActivity(intent);
             }
         });
 
