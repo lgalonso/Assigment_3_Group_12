@@ -47,16 +47,16 @@ public class StatsFragment extends Fragment {
         // DATA THAT WILL BE SHOWN IN THE GRAPH
         // USE DATA FROM THE DATABASE
 
-        visitors.add(new BarEntry(2014,420));
-        visitors.add(new BarEntry(2015,475));
-        visitors.add(new BarEntry(2016,508));
-        visitors.add(new BarEntry(2017,470));
-        visitors.add(new BarEntry(2018,425));
-        visitors.add(new BarEntry(2019,480));
-        visitors.add(new BarEntry(2020,512));
-        visitors.add(new BarEntry(2021,477));
+        visitors.add(new BarEntry(24,97));
+        visitors.add(new BarEntry(25,152));
+        visitors.add(new BarEntry(26,336));
+        visitors.add(new BarEntry(27,154));
+        visitors.add(new BarEntry(28,95));
+        visitors.add(new BarEntry(29,153));
+        visitors.add(new BarEntry(30,108));
+        visitors.add(new BarEntry(31,106));
 
-        BarDataSet barDataSet = new BarDataSet(visitors,"Enter title here");
+        BarDataSet barDataSet = new BarDataSet(visitors,"Number of calories");
         barDataSet.setColors(ColorTemplate.VORDIPLOM_COLORS);
         barDataSet.setValueTextColor(Color.BLACK);
         barDataSet.setValueTextSize(16f);
@@ -65,7 +65,7 @@ public class StatsFragment extends Fragment {
 
         barChart.setFitBars(true);
         barChart.setData(barData);
-        barChart.getDescription().setText("SET TEXT HERE");
+        barChart.getDescription().setText(" ");
         barChart.animateY(2000);
 
         return root;
