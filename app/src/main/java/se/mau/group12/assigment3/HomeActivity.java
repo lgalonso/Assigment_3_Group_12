@@ -53,7 +53,7 @@ public class HomeActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "SOS sent", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Message sent to FITon Team", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
